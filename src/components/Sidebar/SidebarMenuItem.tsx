@@ -1,4 +1,5 @@
 import Link from "next/link";
+import style from './sidebar.module.css';
 
 interface Props{
     item:string,
@@ -8,7 +9,7 @@ interface Props{
 
 const SidebarMenuItem = ({item,icon,path}:Props) => {
   return (
-    <li key={item}> 
+    <li className={style.sidebar_menu_item} key={item}> 
     <span>{icon}</span>
     <Link href={path}>{item}</Link>
    </li>

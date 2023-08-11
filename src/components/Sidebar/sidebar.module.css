@@ -1,4 +1,24 @@
 
 .sidebar_container{
-    color:white;
+   padding-left:2rem;
+   padding-right: 2rem;
+   border:1px solid var(--clr-dark-green);
+}
+
+.sidebar_heading{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color:var(--clr-dark-green);
+}
+.sidebar_menu{
+    display:flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top:2.5rem;
+}
+.sidebar_menu_item{
+    display:flex;
+    align-items: center;
+    gap:1rem;
+    color:var(--clr-light-gray);
 }

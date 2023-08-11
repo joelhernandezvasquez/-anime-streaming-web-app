@@ -6,37 +6,37 @@ export const menuItems:MenuItems [] =
   {
    item:'Home',
    path:'/',
-   icon:<IoHome size = {20}/>
+   icon:<IoHome size = {25}/>
   },
   {
     item:'Trending',
     path:'/trending',
-    icon:<IoTrendingUp size = {20}/>
+    icon:<IoTrendingUp size = {25}/>
    },
    {
     item:'Anime List',
     path:'/anime-list',
-    icon:<IoListOutline size = {20}/>
+    icon:<IoListOutline size = {25}/>
    }, 
    {
     item:'Following',
     path:'',
-    icon:<IoPersonOutline size = {20}/>
+    icon:<IoPersonOutline size = {25}/>
    }, 
    {
     item:'Videos',
     path:'',
-    icon:<IoVideocamOutline size = {20}/>
+    icon:<IoVideocamOutline size = {25}/>
    }, 
    {
     item:'Settings',
     path:'',
-    icon:<IoSettingsOutline size = {20}/>
+    icon:<IoSettingsOutline size = {25}/>
    },
    {
     item:'Log Out',
     path:'',
-    icon:<IoLogOutOutline size = {20}/>
+    icon:<IoLogOutOutline size = {25}/>
    },
 
 ]
