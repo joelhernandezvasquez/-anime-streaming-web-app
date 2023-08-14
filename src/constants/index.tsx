@@ -5,17 +5,17 @@ export const menuItems:MenuItems [] =
 [
   {
    item:'Home',
-   path:'/',
+   path:'/dashboard/main',
    icon:<IoHome size = {25}/>
   },
   {
     item:'Trending',
-    path:'/trending',
+    path:'/dashboard/trending',
     icon:<IoTrendingUp size = {25}/>
    },
    {
     item:'Anime List',
-    path:'/anime-list',
+    path:'/dashboard/anime-list',
     icon:<IoListOutline size = {25}/>
    }, 
    {

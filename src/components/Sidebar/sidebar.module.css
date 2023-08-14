@@ -2,7 +2,8 @@
 .sidebar_container{
    padding-left:2rem;
    padding-right: 2rem;
-   border:1px solid var(--clr-dark-green);
+   padding-top:3rem;
+   border-right:2px solid rgba(67, 65, 58,.3);
 }
 
 .sidebar_heading{
@@ -20,5 +21,18 @@
     display:flex;
     align-items: center;
     gap:1rem;
-    color:var(--clr-light-gray);
+    color:var(--clr-light-gray);   
+    position: relative;
+   
+}
+.active_link{
+   color:var(--clr-dark-green);
+}
+.active_link::after{
+    position: absolute;
+    content:'';
+    width:3px;
+    height:20px;
+    background:var(--clr-dark-green);
+    right:-30px;
 }

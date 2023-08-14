@@ -1,5 +1,8 @@
+'use client';
+
 import Link from "next/link";
 import style from './sidebar.module.css';
+import { usePathname } from "next/navigation";
 
 interface Props{
     item:string,
@@ -8,9 +11,11 @@ interface Props{
 }
 
 const SidebarMenuItem = ({item,icon,path}:Props) => {
+  const pathName = usePathname();
+  
   return (
-    <li className={style.sidebar_menu_item} key={item}> 
-    <span>{icon}</span>
+    <li className={`${style.sidebar_menu_item} ${path === pathName && style.active_link}`} key={item}> 
+    <span className={style.sidebar_icon}>{icon}</span>
     <Link href={path}>{item}</Link>
    </li>
   )
