@@ -1,0 +1,23 @@
+.hero_container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    min-height:300px;
+    margin-top:1.5rem;
+    background:#2F2F2F;
+    border-radius: 20px;
+    padding:1rem 1.5rem;
+}
+
+.hero_container img{
+    flex-basis: 80%;
+    height:400px;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+.hero_content{
+    flex-grow: 20%;
+}
