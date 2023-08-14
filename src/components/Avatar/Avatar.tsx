@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import style from './avatar.module.css';
 
 interface Props{
     name:string,
@@ -7,8 +8,9 @@ interface Props{
 
 const Avatar = ({name,imageSrc}:Props) => {
   return (
-    <div aria-label={`${name} avatar`} role="img">
+    <div className={style.avatar_container} aria-label={`${name} avatar`} role="img">
       <Image
+      className={style.avatar_image}
        width={40}
        height={40}
        src={imageSrc}

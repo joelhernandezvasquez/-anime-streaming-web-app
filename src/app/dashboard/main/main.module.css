@@ -1,5 +1,12 @@
 
 .home_page{
     padding-left:2rem;
+    padding-right: 2rem;
     padding-top:3rem;
+}
+
+.home_page_header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 }
