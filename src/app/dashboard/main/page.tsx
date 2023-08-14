@@ -1,9 +1,10 @@
+import SearchBar from '@/components/SearchBar/SearchBar';
 import style from './main.module.css';
 
 const page = () => {
   return (
     <section className={style.home_page}>
-        <h1>Main page</h1>
+        <SearchBar/>
     </section>
   )
 }
