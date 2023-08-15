@@ -10,3 +10,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.feed_section{
+    margin-top:2rem;
+}
+.feed_section_header{
+    font-size: 1.8rem;
+}
