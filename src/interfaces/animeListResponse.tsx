@@ -1,4 +1,5 @@
 
+
 export interface AnimeListResponse{
     
         _id: string,

@@ -1,0 +1,54 @@
+
+.anime_list_container{
+
+}
+.anime_list_header{
+
+}
+
+.anime_list_card_container{
+  margin:1.5rem 0;
+}
+
+.anime_card{
+  padding:1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  width:fit-content;
+  position: relative;
+}
+
+.anime_card_image{
+  object-fit: cover;
+  border-radius: 5px;
+  
+}
+
+.anime_card_title{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: .5rem;
+}
+.anime_card_status{
+    font-size: 0.875rem;
+    color:#2ABDBB;
+    margin-top: .5rem;
+}
+.anime_card_status_description{
+    color:var(--clr-light-gray);
+    text-transform: lowercase;
+}
+
+.anime_card_back{
+    display:none;
+    position:absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background:red;
+}
+
+.anime_card:hover .anime_card_back{
+   display: block;
+}
