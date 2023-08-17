@@ -21,7 +21,7 @@ const page = () => {
        </Hero>
 
       <section className={style.feed_section}>
-        <AnimeList titleList='Top Picks for You' size={1}/>
+        <AnimeList titleList='Top Picks for You' size={10}/>
       </section>
     </div>
   )
