@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getAnimeById } from "@/services";
 import style from './anime.module.css';
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
+import { IoBookmarkOutline } from "react-icons/io5";
 
 interface Props{
     params:{id:string}
@@ -51,7 +52,22 @@ const AnimePage =  async ({params}:Props) => {
          size={20}
          gap={8}
         />
+        <span>|</span>
+        <span>{animeData.episodes}</span>
        </div>
+
+       <button>
+        <IoBookmarkOutline/>
+         Add to anime list
+       </button>
+
+       <p>
+        {animeData.synopsis}
+       </p>
+       {animeData.genres.map((genres,index)=>{
+        return <p key={index}>{genres}</p>
+       })}
+       
       
         {/* {JSON.stringify(animeData)} */}
     </section>
