@@ -1,7 +1,8 @@
 import { Metadata } from "next/types";
 import Image from "next/image";
 import { getAnimeById } from "@/services";
-
+import style from './anime.module.css';
+import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
 
 interface Props{
     params:{id:string}
@@ -20,8 +21,8 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
   
     catch(err){
       return{
-        title:`Pagina de el pokemon`,
-        description:`description del pokemon`
+        title:`page of Anime`,
+        description:`description of anime`
        }
     }
     
@@ -30,21 +31,27 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 const AnimePage =  async ({params}:Props) => {
   
     const animeData = await getAnimeById(params.id);
-   
     return (
     <section>
         <Image
+        className={style.anime_hero_img}
         width={500}
         height={400}
-        style={{
-            width: '100%',
-            height: '300px',
-            objectFit:'cover',
-            objectPosition:'50% 50%'
-          }}
         src={animeData.image}
         alt={`image of ${animeData.title}`}
         />
+
+       <h1>{animeData.title}</h1>
+       <p>{animeData.status}</p>
+       
+       <div>
+        <AnimeRatingStars
+         count={5}
+         color={'#FEC700'}
+         size={20}
+         gap={8}
+        />
+       </div>
       
         {/* {JSON.stringify(animeData)} */}
     </section>
