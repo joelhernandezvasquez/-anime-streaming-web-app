@@ -8,10 +8,10 @@ export default function DashboardLayout({
 }) {
   return (
 
-    <section className="grid_wrapper">
+    <main className="grid_wrapper">
       <Sidebar/>
       {children}
-    </section>
+    </main>
    
   )
 }

@@ -10,7 +10,7 @@ import AnimeList from '@/components/AnimeList/AnimeList';
 
 const page = () => {
   return (
-    <div className={style.home_page}>
+    <section className={style.home_page}>
       <header className={style.home_page_header}>
        <SearchBar/>
         <Avatar name={'Joel Hernandez'} imageSrc={avatarImage} />
@@ -23,7 +23,7 @@ const page = () => {
       <section className={style.feed_section}>
         <AnimeList titleList='Top Picks for You' size={10}/>
       </section>
-    </div>
+    </section>
   )
 }
 

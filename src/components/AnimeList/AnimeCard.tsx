@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { shortnenText } from "@/helpers";
 import { AnimeListResponse } from "@/interfaces/animeListResponse";
 import { IoStarSharp,IoPlay, IoBookmarkOutline, IoAddOutline } from 'react-icons/io5';
 import style from './animeList.module.css';
+
 
 interface Props {
   anime: AnimeListResponse
@@ -12,6 +14,7 @@ const AnimeCard = ({ anime }: Props) => {
 
   return (
     <li className={style.anime_card}>
+      <Link href={`/dashboard/anime/${anime._id}`}>
       <Image
         className={style.anime_card_image}
         width={250}
@@ -43,7 +46,7 @@ const AnimeCard = ({ anime }: Props) => {
       
       </div>
 
-    
+    </Link>
     </li>
   )
 }
