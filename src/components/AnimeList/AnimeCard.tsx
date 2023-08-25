@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { shortnenText } from "@/helpers";
 import { AnimeListResponse } from "@/interfaces/animeListResponse";
-import { IoStarSharp,IoPlay, IoBookmarkOutline, IoAddOutline } from 'react-icons/io5';
+import {IoPlay, IoBookmarkOutline, IoAddOutline } from 'react-icons/io5';
 import style from './animeList.module.css';
-
+import AnimeRatingStars from "../AnimeRatingStars/AnimeRatingStars";
 
 interface Props {
   anime: AnimeListResponse
@@ -29,11 +29,12 @@ const AnimeCard = ({ anime }: Props) => {
       <div className={style.anime_card_back}>
         <p>{anime.title}</p>
         <p className={style.anime_card_ranking}>
-          <IoStarSharp style={{ color: '#d5a807fd', fontSize: '1rem', marginRight: '.5rem' }} />
-          <IoStarSharp style={{ color: '#d5a807fd', fontSize: '1rem', marginRight: '.5rem' }} />
-          <IoStarSharp style={{ color: '#d5a807fd', fontSize: '1rem', marginRight: '.5rem' }} />
-          <IoStarSharp style={{ color: '#d5a807fd', fontSize: '1rem', marginRight: '.5rem' }} />
-          <IoStarSharp style={{ color: '#d5a807fd', fontSize: '1rem', marginRight: '.5rem' }} />
+        <AnimeRatingStars
+         count={5}
+         color={'#d5a807fd'}
+         size={16}
+         gap={8}
+        />
         </p>
         <p>{anime.episodes} Episodes</p>
         <p className={style.anime_card_synopsis}> {shortnenText(anime.synopsis, 140)}</p>
