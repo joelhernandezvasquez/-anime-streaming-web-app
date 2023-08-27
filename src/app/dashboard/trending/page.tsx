@@ -1,4 +1,6 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
+import style from './trending.module.css';
+import AnimeList from "@/components/AnimeList/AnimeList";
 
 export const metadata: Metadata = {
   title: 'Trending',
@@ -7,8 +9,8 @@ export const metadata: Metadata = {
 
 const trending = () => {
   return (
-    <section>
-      <h1>Most Popular Anime</h1>
+    <section className={style.container} >
+     <AnimeList titleList='Most Popular Anime' size={40}/>
     </section>
   )
 }
