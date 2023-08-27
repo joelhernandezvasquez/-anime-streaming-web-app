@@ -1,9 +1,9 @@
 import { Metadata } from "next/types";
 import Image from "next/image";
 import { getAnimeById } from "@/services";
-import style from './anime.module.css';
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
 import { IoBookmarkOutline } from "react-icons/io5";
+import style from './anime.module.css';
 
 interface Props{
     params:{id:string}
@@ -11,7 +11,7 @@ interface Props{
 
 export async function generateMetadata({params}:Props):Promise<Metadata>{
 
-    try{
+  try{
       const anime = await getAnimeById(params.id);
   
       return{
@@ -41,35 +41,39 @@ const AnimePage =  async ({params}:Props) => {
         src={animeData.image}
         alt={`image of ${animeData.title}`}
         />
-
-       <h1>{animeData.title}</h1>
-       <p>{animeData.status}</p>
+      <div className={style.anime_main_container}>
+      <h1>{animeData.title}</h1>
+      <p className={style.anime_status}> Status: <span className={style.anime_status_description}>{animeData.status}</span> </p>
        
-       <div>
+       <div className={style.anime_flex_row}>
         <AnimeRatingStars
          count={5}
-         color={'#FEC700'}
-         size={20}
+         color={'#fff'}
+         size={24}
          gap={8}
         />
-        <span>|</span>
-        <span>{animeData.episodes}</span>
+        <div className={style.anime_divider}></div>
+        <span className={style.anime_episodes}>{animeData.episodes} Episodes</span>
        </div>
 
-       <button>
-        <IoBookmarkOutline/>
+       <button className={style.add_anime_list_btn}>
+        <IoBookmarkOutline size={30}/>
          Add to anime list
        </button>
 
-       <p>
+       <p className={style.anime_sypnopsis}>
         {animeData.synopsis}
        </p>
-       {animeData.genres.map((genres,index)=>{
-        return <p key={index}>{genres}</p>
-       })}
        
+       <ul className={style.anime_genres_container}>
+       {animeData.genres.map((genres,index)=>{
+        return <li key={index}>{genres}</li>
+       })}
+       </ul>
+       
+      </div>
       
-        {/* {JSON.stringify(animeData)} */}
+       
     </section>
   )
 }
