@@ -71,9 +71,7 @@ const AnimePage =  async ({params}:Props) => {
        })}
        </ul>
        
-      </div>
-      
-       
+      </div>  
     </section>
   )
 }
