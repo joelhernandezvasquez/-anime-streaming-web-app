@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const trending = () => {
   return (
     <section className={style.container} >
-     <AnimeList titleList='Most Popular Anime' size={40}/>
+     <AnimeList titleList='Most Popular Anime' size={50}/>
     </section>
   )
 }
