@@ -1,0 +1,60 @@
+
+
+.container{
+    margin-top:3rem;
+    padding:0 2rem;
+}
+.container h1{
+    display:flex;
+    align-items: center;
+    gap:1rem;
+    font-size: 2rem;
+}
+.container h2{
+    margin-top:2.5rem;
+    font-size: 1.3rem;
+}
+
+.anime_favorite_list_container{
+    display:grid;
+    grid-template-columns: repeat( auto-fit, minmax(220px, 250px) );
+    gap:2rem;
+    margin:1.5rem 0;
+    padding-right: .5rem;
+}
+
+.anime_favorite_card{
+   display: grid;
+   grid-template-columns: 1fr;
+   padding:1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width:fit-content;
+    min-height: 300px;
+    background:rgba(47, 47, 47,0.5);
+   
+}
+.anime_favorite_card_image{
+    object-fit: cover;
+    border-radius: 5px;
+}
+.anime_favorite_card_title{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: .5rem;
+}
+.anime_favorites_card_episodes{
+    /* margin-top: .5rem; */
+    font-size: 0.975rem;
+    color:#A0A0A0;
+}
+
+.anime_favorites_card_footer{
+   align-self: end;
+   display:flex;
+   align-items: center;
+   gap:.5rem;
+}
+.anime_favorites_card_footer p{
+    margin-right: auto;
+}

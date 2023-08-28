@@ -15,7 +15,7 @@ export const menuItems:MenuItems [] =
    },
    {
     item:'Anime List',
-    path:'/dashboard/anime-list',
+    path:'/dashboard/animeList',
     icon:<IoListOutline size = {25}/>
    }, 
    {
