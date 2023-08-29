@@ -1,5 +1,5 @@
 import { MenuItems } from "@/interface/Menu/menuItem";
-import { IoHome,IoTrendingUp,IoListOutline,IoPersonOutline,IoVideocamOutline,IoSettingsOutline,IoLogOutOutline} from "react-icons/io5";
+import { IoHome,IoTrendingUp,IoListOutline,IoPersonOutline,IoVideocamOutline,IoSettingsOutline,IoLogOutOutline, IoSearchOutline} from "react-icons/io5";
 
 export const menuItems:MenuItems [] = 
 [
@@ -18,6 +18,12 @@ export const menuItems:MenuItems [] =
     path:'/dashboard/animeList',
     icon:<IoListOutline size = {25}/>
    }, 
+   {
+    item:'Search',
+    path:'/dashboard/search',
+    icon:<IoSearchOutline  size = {25}/>
+   },
+
    {
     item:'Following',
     path:'',

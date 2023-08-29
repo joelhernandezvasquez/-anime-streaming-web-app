@@ -36,3 +36,4 @@ export const getAnimeById = async (id:string):Promise<AnimeListResponse> => {
     // return { error: 'An error occurred while fetching the anime data.' };
   }
 }
+
