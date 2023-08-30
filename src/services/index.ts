@@ -37,3 +37,14 @@ export const getAnimeById = async (id:string):Promise<AnimeListResponse> => {
   }
 }
 
+export const getAnimeBySearch = async (anime:string) =>{
+  try{
+    const animeResult = await fetch(`https://anime-db.p.rapidapi.com/anime?page=1&size=1&search=${anime}&sortBy=ranking&sortOrder=asc`,apiHeader)
+    .then(response => response.json());
+    return animeResult.data[0];
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+

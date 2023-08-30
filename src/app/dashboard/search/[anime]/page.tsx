@@ -1,13 +1,15 @@
+import { getAnimeBySearch } from "@/services"
 
 interface Props{
     params:{anime:string}
 }
 
-const SearchAnime = ({params}:Props) => {
-    
+const SearchAnime = async ({params}:Props) => {
+    const animeSearched  = await getAnimeBySearch(params.anime);
+    console.log(animeSearched)
   return (
     <div>
-        <p>{params.anime}</p>
+       {JSON.stringify(animeSearched)}
     </div>
   )
 }
