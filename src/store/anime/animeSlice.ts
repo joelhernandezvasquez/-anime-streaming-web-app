@@ -1,13 +1,21 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AnimeListResponse } from '@/interfaces/animeListResponse';
+import { FavoriteAnimeList } from '@/interfaces/favoriteAnimeList';
 
 interface FavoriteAnimeState {
-    favoritesAnime:AnimeListResponse [],
+    favoritesAnime:FavoriteAnimeList[],
     isReady:boolean
 }
 
 const initialState:FavoriteAnimeState = {
- favoritesAnime:[],
+
+ favoritesAnime:[{
+  id:'1',
+  title:'Bleach',
+  thumbnail:'https://cdn.myanimelist.net/images/anime/2/29550.webp',
+  episodes:456,
+  status:'finished airing',
+ }
+ ],
  isReady:false
 }
 

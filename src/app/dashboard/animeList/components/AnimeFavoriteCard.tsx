@@ -1,13 +1,12 @@
 import Image from 'next/image';
-import style from '../animeList.module.css';
 import { IoHeartOutline,IoTrashOutline } from 'react-icons/io5';
 import AnimeRatingStars from '@/components/AnimeRatingStars/AnimeRatingStars';
-
+import style from '../animeList.module.css';
 interface Props{
   id:string,
   title:string,
   thumbnail:string,
-  episodes:string,
+  episodes:number,
   status:string,
 }
 
