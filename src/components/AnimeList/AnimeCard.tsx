@@ -19,7 +19,7 @@ const AnimeCard = ({ anime }: Props) => {
   const {_id,title,thumb,episodes,status} = anime;
 
   const toogleBookmark = () =>{
-    dispatch(addAnime({_id,title,thumb,episodes,status}));
+    // dispatch(addAnime({_id,title,thumb,episodes,status}));
   }
 
   return (

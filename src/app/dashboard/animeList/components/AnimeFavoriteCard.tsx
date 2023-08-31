@@ -5,12 +5,12 @@ import style from '../animeList.module.css';
 interface Props{
   id:string,
   title:string,
-  thumbnail:string,
+  thumb:string,
   episodes:number,
   status:string,
 }
 
-export const AnimeFavoriteCard = ({id,title,thumbnail,episodes,status}:Props) => {
+export const AnimeFavoriteCard = ({id,title,thumb,episodes,status}:Props) => {
  
     return (
     <li className={style.anime_favorite_card}>
@@ -18,7 +18,7 @@ export const AnimeFavoriteCard = ({id,title,thumbnail,episodes,status}:Props) =>
         className={style.anime_favorite_card_image}
         width={250}
         height={140}
-        src={thumbnail}
+        src={thumb}
         alt={`${title} thumbnail`}
       />
 
