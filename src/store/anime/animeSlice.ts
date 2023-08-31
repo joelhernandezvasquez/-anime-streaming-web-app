@@ -9,9 +9,9 @@ interface FavoriteAnimeState {
 const initialState:FavoriteAnimeState = {
 
  favoritesAnime:[{
-  id:'1',
+  _id:'1',
   title:'Bleach',
-  thumbnail:'https://cdn.myanimelist.net/images/anime/2/29550.webp',
+  thumb:'https://cdn.myanimelist.net/images/anime/2/29550.webp',
   episodes:456,
   status:'finished airing',
  }
@@ -24,6 +24,12 @@ const animeSlice = createSlice({
   initialState,
 
   reducers: {
+
+    addAnime(state,action:PayloadAction<FavoriteAnimeList>){
+      console.log(action)
+     state.favoritesAnime = [...state.favoritesAnime,action.payload];
+     
+    }
 
     // initCounterState (state,action:PayloadAction<number>){
      
@@ -44,6 +50,6 @@ const animeSlice = createSlice({
   },
 });
 
-export const {} = animeSlice.actions;
+export const {addAnime} = animeSlice.actions;
 
 export default animeSlice.reducer;

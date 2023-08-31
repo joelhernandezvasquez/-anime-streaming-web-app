@@ -1,8 +1,8 @@
 
 export interface FavoriteAnimeList{
-    id:string,
+    _id:string,
     title:string,
-    thumbnail:string,
+    thumb:string,
     episodes:number,
     status:string
 }

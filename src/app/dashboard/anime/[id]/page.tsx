@@ -2,7 +2,7 @@ import { Metadata } from "next/types";
 import Image from "next/image";
 import { getAnimeById } from "@/services";
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
-import { IoBookmarkOutline } from "react-icons/io5";
+import BookmarkAnimeButton from "./components/BookmarkAnimeButton";
 import style from './anime.module.css';
 
 interface Props{
@@ -30,7 +30,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
   }
 
 const AnimePage =  async ({params}:Props) => {
-  
+   
     const animeData = await getAnimeById(params.id);
     return (
     <section>
@@ -56,10 +56,7 @@ const AnimePage =  async ({params}:Props) => {
         <span className={style.anime_episodes}>{animeData.episodes} Episodes</span>
        </div>
 
-       <button className={style.add_anime_list_btn}>
-        <IoBookmarkOutline size={30}/>
-         Add to anime list
-       </button>
+       <BookmarkAnimeButton anime={animeData}/>
 
        <p className={style.anime_sypnopsis}>
         {animeData.synopsis}

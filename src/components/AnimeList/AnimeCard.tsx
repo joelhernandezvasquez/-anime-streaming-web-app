@@ -1,20 +1,30 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useAppDispatch} from "@/store";
 import { shortnenText } from "@/helpers";
 import { AnimeListResponse } from "@/interfaces/animeListResponse";
 import {IoPlay, IoBookmarkOutline, IoAddOutline } from 'react-icons/io5';
 import style from './animeList.module.css';
 import AnimeRatingStars from "../AnimeRatingStars/AnimeRatingStars";
+import { addAnime } from "@/store/anime/animeSlice";
 
 interface Props {
   anime: AnimeListResponse
 }
 
 const AnimeCard = ({ anime }: Props) => {
+  const dispatch = useAppDispatch();
+  const {_id,title,thumb,episodes,status} = anime;
+
+  const toogleBookmark = () =>{
+    dispatch(addAnime({_id,title,thumb,episodes,status}));
+  }
 
   return (
     <li className={style.anime_card}>
-      <Link href={`/dashboard/anime/${anime._id}`}>
+      <Link href={`/dashboard/anime/${anime._id}`} onClick={toogleBookmark}>
       <Image
         className={style.anime_card_image}
         width={250}
@@ -41,7 +51,7 @@ const AnimeCard = ({ anime }: Props) => {
         
         <div className={style.anime_card_icon_actions}>
           <IoPlay size={25} />
-          <IoBookmarkOutline size={25} />
+          <IoBookmarkOutline size={25}  />
           <IoAddOutline size={25} />
       </div>
       
