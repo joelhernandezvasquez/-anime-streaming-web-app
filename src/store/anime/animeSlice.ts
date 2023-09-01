@@ -24,11 +24,18 @@ const animeSlice = createSlice({
     
     setFavoriteAnime(state,action:PayloadAction<FavoriteAnimeList []>){
      state.favoritesAnime = action.payload;
+    },
+
+    removeAnime(state,action:PayloadAction<string>){
+      console.log(action.payload);
+      state.favoritesAnime = state.favoritesAnime.filter((anime)=> anime._id !== action.payload);
+      console.log(state.favoritesAnime);
+      localStorage.setItem('favorite-anime',JSON.stringify(state.favoritesAnime));
     }
 
   }
 });
 
-export const {addAnime,setFavoriteAnime} = animeSlice.actions;
+export const {addAnime,setFavoriteAnime,removeAnime} = animeSlice.actions;
 
 export default animeSlice.reducer;

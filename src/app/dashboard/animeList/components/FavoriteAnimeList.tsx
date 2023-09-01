@@ -6,11 +6,12 @@ import style from '../animeList.module.css';
 
 const FavoriteAnimeList = () => {
  const favoriteAnimes = useAppSelector(state => state.anime.favoritesAnime);
+ 
 
   return (
     <ul className={style.anime_favorite_list_container}>
      {favoriteAnimes.map((anime)=>{
-        return <AnimeFavoriteCard key={anime.id} {...anime} />
+        return <AnimeFavoriteCard key={anime._id} {...anime} />
      })}
     </ul>
   )
