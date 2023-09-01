@@ -27,9 +27,7 @@ const animeSlice = createSlice({
     },
 
     removeAnime(state,action:PayloadAction<string>){
-      console.log(action.payload);
       state.favoritesAnime = state.favoritesAnime.filter((anime)=> anime._id !== action.payload);
-      console.log(state.favoritesAnime);
       localStorage.setItem('favorite-anime',JSON.stringify(state.favoritesAnime));
     }
 

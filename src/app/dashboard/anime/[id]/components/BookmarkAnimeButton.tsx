@@ -1,29 +1,39 @@
 'use client';
 
-import { useAppDispatch } from "@/store";
-import { addAnime } from "@/store/anime/animeSlice";
+import useAnimeListManager from "@/hooks/useAnimeListManager";
 import { FavoriteAnimeList } from "@/interfaces/favoriteAnimeList";
-import { IoBookmarkOutline } from "react-icons/io5";
+import { IoBookmarkOutline,IoBookmark } from "react-icons/io5";
 import style from '../anime.module.css';
-
 
 interface Props{
     anime:FavoriteAnimeList
 }
 
 const BookmarkAnimeButton = ({anime}:Props) => {
-    const {_id,title,thumb,episodes,status} = anime;
-    const dispatch = useAppDispatch();
-
-    const handleBookmarkAnime = () =>{
-        dispatch(addAnime({_id,title,thumb,episodes,status}))
+   const {isAnimeStored,removeAnimeFromList,addAnimeToList} = useAnimeListManager();
+    const {_id} = anime;
+  
+    return (
+    <>
+    {
+        !isAnimeStored(_id)
+        
+        ?  (<button className={style.add_anime_list_btn} onClick={()=>addAnimeToList(anime)}>
+           <IoBookmarkOutline size={30}/>
+            Add to anime list 
+           </button>
+           )
+        :
+        
+        (<button className={style.add_anime_list_btn} onClick={()=>removeAnimeFromList(_id)}>
+           <IoBookmark size={30}/>
+            In Anime List 
+          </button>
+        )
     }
-
-  return (
-    <button className={style.add_anime_list_btn} onClick={handleBookmarkAnime}>
-        <IoBookmarkOutline size={30}/>
-         Add to anime list
-    </button>
+    
+    </>
+   
   )
 }
 

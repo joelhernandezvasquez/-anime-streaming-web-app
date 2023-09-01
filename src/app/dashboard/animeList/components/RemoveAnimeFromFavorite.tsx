@@ -1,21 +1,17 @@
 'use client';
 
-import { useAppDispatch } from '@/store';
-import { removeAnime } from '@/store/anime/animeSlice';
+import useAnimeListManager from '@/hooks/useAnimeListManager';
 import {IoTrashOutline } from 'react-icons/io5';
 
 interface Props{
     animeId:string
 }
 const RemoveAnimeFromFavorite = ({animeId}:Props) => {
-    const dispatch = useAppDispatch();
 
-    const OnRemoveAnime = () =>{
-        console.log(animeId)
-        dispatch(removeAnime(animeId));
-    }
+  const {removeAnimeFromList} = useAnimeListManager();
+
   return (
-    <div onClick={OnRemoveAnime}>
+    <div onClick={() => removeAnimeFromList(animeId)}>
         <IoTrashOutline size = {25}/>
     </div>
   )
