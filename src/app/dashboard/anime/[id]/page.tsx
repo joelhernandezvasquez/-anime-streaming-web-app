@@ -3,7 +3,9 @@ import Image from "next/image";
 import { getAnimeById } from "@/services";
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
 import BookmarkAnimeButton from "./components/BookmarkAnimeButton";
+import { shortnenText } from "@/helpers";
 import style from './anime.module.css';
+
 
 interface Props{
     params:{id:string}
@@ -59,7 +61,7 @@ const AnimePage =  async ({params}:Props) => {
        <BookmarkAnimeButton anime={animeData}/>
 
        <p className={style.anime_sypnopsis}>
-        {animeData.synopsis}
+        { shortnenText(animeData.synopsis,500)}
        </p>
        
        <ul className={style.anime_genres_container}>
