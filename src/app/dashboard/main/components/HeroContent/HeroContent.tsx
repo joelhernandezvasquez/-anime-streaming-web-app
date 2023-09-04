@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { IoStarHalfOutline,IoStarSharp } from 'react-icons/io5';
 import style from './heroContent.module.css';
 import AnimeRatingStars from '@/components/AnimeRatingStars/AnimeRatingStars';
 

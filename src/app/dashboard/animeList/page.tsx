@@ -15,9 +15,7 @@ const AnimeListPage = () => {
         <IoBookmarkOutline size={40}/>
          My Anime List 
       </h1>
-
-      <h2>Recent Activity</h2>
-
+      
       <FavoriteAnimeList/>
 
     </section>

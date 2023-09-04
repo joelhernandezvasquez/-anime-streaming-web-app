@@ -58,3 +58,35 @@
 .anime_favorites_card_footer p{
     margin-right: auto;
 }
+
+.anime_empty_list_container{
+ margin-top: 1rem;
+ height:400px;
+}
+.anime_empty_list_container svg{
+    width:100%;
+    height:100%;
+}
+
+.anime_empty_list_footer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.anime_empty_list_container_heading{
+    text-align:center;
+}
+.anime_empty_list_container_heading span{
+  display: block;
+  font-size: 1.1rem;
+  margin-top: .5rem;
+}
+.anime_empty_list_footer_btn{
+    background:var(--clr-dark-green);
+    color:white;
+    padding:.7rem 2rem;
+    margin-top:1.2rem;
+    border-radius: 5px;
+
+}
