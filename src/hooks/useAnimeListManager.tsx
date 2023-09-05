@@ -2,7 +2,6 @@ import { FavoriteAnimeList } from "@/interfaces/favoriteAnimeList";
 import { useAppSelector,useAppDispatch } from "@/store";
 import { addAnime, removeAnime } from "@/store/anime/animeSlice";
 
-
 const useAnimeListManager = () => {
 
   const favoriteAnimeList = useAppSelector(state => state.anime.favoritesAnime);
