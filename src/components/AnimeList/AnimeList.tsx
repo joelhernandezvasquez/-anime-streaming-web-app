@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { getAnimeList } from '@/services';
 import AnimeCard from './AnimeCard';
 import style from './animeList.module.css';
