@@ -1,8 +1,13 @@
+import SearchBar from "@/components/SearchBar/SearchBar"
 
 const SearchPage = () => {
     return (
       <section>
-         Search 
+        <header>
+          <SearchBar/>
+        </header>
+
+        
       </section>
     )
   }

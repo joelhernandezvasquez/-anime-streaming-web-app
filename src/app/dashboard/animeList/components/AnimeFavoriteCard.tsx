@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import AnimeRatingStars from '@/components/AnimeRatingStars/AnimeRatingStars';
-import style from '../animeList.module.css';
 import RemoveAnimeFromFavorite from './RemoveAnimeFromFavorite';
+import style from '../animeList.module.css';
 interface Props{
-  _id:string,
+  id:string,
   title:string,
   thumb:string,
   episodes:number,
   status:string,
 }
 
-export const AnimeFavoriteCard = ({_id,title,thumb,episodes,status}:Props) => {
+export const AnimeFavoriteCard = ({id,title,thumb,episodes,status}:Props) => {
   
     return (
     <li className={style.anime_favorite_card}>
@@ -36,7 +36,7 @@ export const AnimeFavoriteCard = ({_id,title,thumb,episodes,status}:Props) => {
     <div className={style.anime_favorites_card_footer}>
    
     <p className={style.anime_favorite_card_status}>Status: <span className={style.anime_card_status_description}>{status}</span></p>
-     <RemoveAnimeFromFavorite animeId = {_id}/>
+     <RemoveAnimeFromFavorite animeId = {id}/>
     </div>
     </li>
   )
