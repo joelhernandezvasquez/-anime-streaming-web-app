@@ -1,17 +1,20 @@
 'use client';
+import { deleteAnime } from '@/animes/helpers/anime';
+import { useRouter } from 'next/navigation';
 
-import useAnimeListManager from '@/hooks/useAnimeListManager';
 import {IoTrashOutline } from 'react-icons/io5';
-
 interface Props{
     animeId:string
 }
 const RemoveAnimeFromFavorite = ({animeId}:Props) => {
+  const router = useRouter();
 
-  const {removeAnimeFromList} = useAnimeListManager();
-
+ const onDeleteAnime = async() =>{
+   await deleteAnime(animeId); 
+   router.refresh();
+ }
   return (
-    <div onClick={() => removeAnimeFromList(animeId)}>
+    <div onClick={onDeleteAnime}>
         <IoTrashOutline size = {25}/>
     </div>
   )
