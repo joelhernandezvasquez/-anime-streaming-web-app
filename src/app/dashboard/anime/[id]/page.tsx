@@ -4,8 +4,10 @@ import { getAnimeById } from "@/services";
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
 import BookmarkAnimeButton from "./components/BookmarkAnimeButton";
 import { shortnenText } from "@/helpers";
+import { getAnime } from "@/animes/helpers/anime";
+import { Anime } from "@prisma/client";
+import { IoBookmark, IoBookmarkOutline } from "react-icons/io5";
 import style from './anime.module.css';
-
 
 interface Props{
     params:{id:string}
@@ -28,12 +30,14 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
         description:`description of anime`
        }
     }
-    
   }
 
 const AnimePage =  async ({params}:Props) => {
-   
-    const animeData = await getAnimeById(params.id);
+    const animes = getAnimeById(params.id);
+    const isAnimeStored = getAnime(params.id);
+   const [animeData,isAnimeStoreData] = await Promise.all([animes,isAnimeStored]);
+   const anime:Anime = {id:animeData._id,title:animeData.title,thumb:animeData.thumb,episodes:animeData.episodes,status:animeData.status};
+  
     return (
     <section>
         <Image
@@ -58,8 +62,29 @@ const AnimePage =  async ({params}:Props) => {
         <span className={style.anime_episodes}>{animeData.episodes} Episodes</span>
        </div>
 
-       <BookmarkAnimeButton anime={animeData}/>
-
+      { isAnimeStoreData
+        ?
+          (
+          <BookmarkAnimeButton 
+          style={style.add_anime_list_btn}
+          icon= {<IoBookmark size={30}/>} 
+          buttonText={"In Anime List"}
+          isStored={isAnimeStoreData}
+          anime = {anime}
+          
+          />
+          )
+          :
+          (
+          <BookmarkAnimeButton 
+          style={style.add_anime_list_btn}
+          icon= {<IoBookmarkOutline size={30}/>} 
+          buttonText={"Add to anime list"}
+          isStored = {isAnimeStoreData}
+          anime={anime}
+          />
+          )
+  }
        <p className={style.anime_sypnopsis}>
         { shortnenText(animeData.synopsis,500)}
        </p>

@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,11 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-model Anime{
-  id  String @id @default(uuid())
-  title String
-  thumb String
+model Anime {
+  id       String @id
+  title    String 
+  thumb    String
   episodes Int
-  status String
+  status   String
 }

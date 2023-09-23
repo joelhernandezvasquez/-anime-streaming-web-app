@@ -7,6 +7,20 @@ interface Segment{
         id:string
     }
 }
+
+
+export async function GET(request:NextRequest,{params}:Segment){
+
+    const anime = await prisma.anime.findFirst({where: {id:params.id}});
+    
+    if(anime){
+        return NextResponse.json(true,{status:200});
+    }
+    
+    return NextResponse.json(false, {status:200});
+}
+
+
 export async function DELETE (request:NextRequest,{params}:Segment){
 
 const anime = await prisma.anime.findFirst({where: {id:params.id}});

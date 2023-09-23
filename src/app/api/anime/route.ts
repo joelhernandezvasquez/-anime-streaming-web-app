@@ -19,3 +19,20 @@ export async function GET(request:Request,response:Response) {
     }
    } 
 }
+
+export async function POST (request:NextRequest){
+   const body = await request.json();
+   const {id,title,thumb,episodes,status} = body;
+  
+  try{
+   await prisma.anime.create({
+    data:{id,title,thumb,episodes,status}
+  })
+  
+  return NextResponse.json({message:'Anime created'},{status:201});
+  }
+  catch(err){
+    return NextResponse.json({err},{status:400})
+  }
+
+}

@@ -1,22 +1,30 @@
+import { createAnime, deleteAnime, getAnime } from "@/animes/helpers/anime";
 import { FavoriteAnimeList } from "@/interfaces/favoriteAnimeList";
 import { useAppSelector,useAppDispatch } from "@/store";
 import { addAnime, removeAnime } from "@/store/anime/animeSlice";
+import { Anime } from "@prisma/client";
+
 
 const useAnimeListManager = () => {
 
-  const favoriteAnimeList = useAppSelector(state => state.anime.favoritesAnime);
-  const dispatch = useAppDispatch();
+  // const favoriteAnimeList = useAppSelector(state => state.anime.favoritesAnime);
+  // const dispatch = useAppDispatch();
 
-  const addAnimeToList = (anime:FavoriteAnimeList) =>{
-    dispatch(addAnime(anime));
+  const addAnimeToList = async (anime:Anime) =>{
+    await createAnime(anime);
+    //dispatch(addAnime(anime));
   }
 
-  const removeAnimeFromList = (animeId:string) =>{
-    dispatch(removeAnime(animeId));
+  const removeAnimeFromList = async (animeId:string) =>{
+    await deleteAnime(animeId);
+   // dispatch(removeAnime(animeId));
   }
 
-  const isAnimeStored = (animeId:string) =>{
-   return favoriteAnimeList.some((anime)=> anime._id === animeId);
+  const isAnimeStored = async (animeId:string) =>{
+    const result = await getAnime(animeId);
+    console.log(result);
+    return result;
+   //return favoriteAnimeList.some((anime)=> anime._id === animeId);
   }
   
   return {

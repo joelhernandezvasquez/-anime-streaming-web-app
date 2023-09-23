@@ -1,39 +1,36 @@
 'use client';
 
-import useAnimeListManager from "@/hooks/useAnimeListManager";
-import { FavoriteAnimeList } from "@/interfaces/favoriteAnimeList";
-import { IoBookmarkOutline,IoBookmark } from "react-icons/io5";
-import style from '../anime.module.css';
-
+import { ReactNode } from 'react';
+import { Anime } from '@prisma/client';
+import { useRouter } from 'next/navigation';
+import useAnimeListManager from '@/hooks/useAnimeListManager';
 interface Props{
-    anime:FavoriteAnimeList
+    icon:ReactNode,
+    buttonText?:string,
+    isStored:boolean
+    anime: Anime,
+    style?:string
 }
 
-const BookmarkAnimeButton = ({anime}:Props) => {
-   const {isAnimeStored,removeAnimeFromList,addAnimeToList} = useAnimeListManager();
-    const {_id} = anime;
+const BookmarkAnimeButton = ({icon,buttonText,isStored,anime,style}:Props) => {
+ const router = useRouter();
+ const {removeAnimeFromList,addAnimeToList} = useAnimeListManager();
   
-    return (
-    <>
-    {
-        !isAnimeStored(_id)
-        
-        ?  (<button className={style.add_anime_list_btn} onClick={()=>addAnimeToList(anime)}>
-           <IoBookmarkOutline size={30}/>
-            Add to anime list 
-           </button>
-           )
-        :
-        
-        (<button className={style.add_anime_list_btn} onClick={()=>removeAnimeFromList(_id)}>
-           <IoBookmark size={30}/>
-            In Anime List 
-          </button>
-        )
+ const onToggleBookmarkedAnime= async () =>{
+  
+  if(isStored){
+      await removeAnimeFromList(anime.id);
     }
-    
-    </>
-   
+    else{
+      await addAnimeToList(anime);
+    }
+    router.refresh();
+  }
+  return (
+    <button className={style} onClick={onToggleBookmarkedAnime}>
+      {icon}
+      {buttonText}
+     </button>    
   )
 }
 
