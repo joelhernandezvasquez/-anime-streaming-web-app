@@ -4,11 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { shortnenText } from "@/helpers";
 import { AnimeListResponse } from "@/interfaces/animeListResponse";
-import {IoBookmarkOutline,IoBookmark } from 'react-icons/io5';
 import AnimeRatingStars from "../AnimeRatingStars/AnimeRatingStars";
+import {getAnime } from "@/animes/helpers/anime";
+import BookmarkAnimeButton from "@/app/dashboard/animeList/components/BookmarkAnimeButton";
 import style from './animeList.module.css';
-import { createAnime, getAnime } from "@/animes/helpers/anime";
-import BookmarkAnimeButton from "@/app/dashboard/anime/[id]/components/BookmarkAnimeButton";
 
 interface Props {
   anime: AnimeListResponse
@@ -18,12 +17,6 @@ const AnimeCard = async ({ anime }: Props) => {
   const {_id,title,episodes,status,synopsis,image} = anime;
   const isAnimeStored = await getAnime(_id);
  
-  // const onAddAnime = async () =>{
-  //   const animeToPost = {title:anime.title,episodes:anime.episodes,status:anime.status,thumb:anime.thumb}
-  //   const resp = await createAnime(animeToPost);
-  //   console.log(resp);
-    
-  // }
   return (
     <li className={style.anime_card}>
       <Image
@@ -52,26 +45,10 @@ const AnimeCard = async ({ anime }: Props) => {
         </Link>
          
         <div className={style.anime_card_icon_actions}>
-        { isAnimeStored 
-         ?
-         (
-          <BookmarkAnimeButton 
-          style={style.anime_card_icon_actions}
-          icon= {<IoBookmark size={20}/>} 
-          isStored={isAnimeStored}
-          anime = {{id:_id,title,thumb:image,episodes,status}}
+          <BookmarkAnimeButton
+            isStored={isAnimeStored}
+            anime = {{id:_id,title,thumb:image,episodes,status}}
           />
-         )
-         :
-         (
-          <BookmarkAnimeButton 
-          style={style.anime_card_icon_actions}
-          icon= {<IoBookmarkOutline size={25}/>} 
-          isStored = {isAnimeStored}
-          anime = {{id:_id,title,thumb:image,episodes,status}}
-          />
-         )
-        }
         </div>
       </div>
     </li>

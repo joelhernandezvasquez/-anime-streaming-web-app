@@ -2,7 +2,7 @@ import { Metadata } from "next/types";
 import Image from "next/image";
 import { getAnimeById } from "@/services";
 import AnimeRatingStars from "@/components/AnimeRatingStars/AnimeRatingStars";
-import BookmarkAnimeButton from "./components/BookmarkAnimeButton";
+import BookmarkAnimeButton from "../../animeList/components/BookmarkAnimeButton";
 import { shortnenText } from "@/helpers";
 import { getAnime } from "@/animes/helpers/anime";
 import { Anime } from "@prisma/client";

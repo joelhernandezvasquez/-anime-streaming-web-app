@@ -64,13 +64,17 @@
 }
 
 .anime_card_icon_actions{
-
+  appearance: none;
   display:flex;
   align-items: center;
   gap:1rem;
   margin:1rem 0;
-  color:var(--clr-dark-green);
   background:none;
   border:none;
   cursor: pointer;
+  width: fit-content;
+}
+.anime_card_icon_actions svg{
+  fill:var(--clr-dark-green);
+ 
 }
